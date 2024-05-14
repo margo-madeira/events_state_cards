@@ -1,10 +1,8 @@
-import {Store} from './Store';
-import './App.css';
+import { Store } from "./components/Store";
+import "./App.css";
 
 function App() {
-  return (
-    <Store products="products"/>
-  );
+  return <Store />;
 }
 
 export default App;

@@ -1,4 +1,3 @@
-import { Store } from "./Store";
 import { ShopCard } from "./ShopCard";
 
 export const CardsView = (props) => {
@@ -6,8 +5,8 @@ export const CardsView = (props) => {
 
   return (
     <div className="container_cards">
-      {cards.map((el, ind) => {
-        <ShopCard key={ind} item={el} />;
+      {cards[0].map((el, ind) => {
+        return <ShopCard key={ind} cards={cards[0][ind]} />;
       })}
     </div>
   );

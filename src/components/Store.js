@@ -42,29 +42,23 @@ export const Store = () => {
       img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/layouts/img/5.jpg",
     },
   ]);
-
-  const [icon, setStateIcon] = useState("view_module");
-  const [cards, setStateCards] = useState(products);
-  const [items, setStateItems] = useState(false);
-
-  const onSwitch = (iconForChange, icon, cards, items, products) => {
+  
+  const [icon, setStateIcon] = useState("view_list");
+ 
+  const onSwitch = (iconForChange) => {
+    
     //меняется иконка
     if (iconForChange.target.className.includes("view_module")) {
-      setStateIcon((icon = "view_list"));
-      setStateCards(false);
-      setStateItems((items = products));
+      setStateIcon("view_list");
     } else {
-      setStateIcon((icon = "view_module"));
-      setStateCards((cards = products));
-      setStateItems(false);
+      setStateIcon("view_module");
     }
   };
 
   return (
     <div className="container">
       <IconSwitch icon={icon} onSwitch={onSwitch} />
-      <CardsView cards={cards} />
-      <ListView items={items} />
+      {(icon === "view_module") ? <ListView items={products} /> : <CardsView cards={products} /> }
     </div>
   );
 };
